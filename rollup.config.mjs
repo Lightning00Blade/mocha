@@ -29,7 +29,9 @@ const config = {
       keys: ['name', 'version', 'homepage', 'notifyLogo']
     }),
     commonjs(),
-    nodePolyfills(),
+    nodePolyfills({
+      include: null
+    }),
     nodeResolve({
       browser: true
     })
