@@ -6,6 +6,14 @@ jobs:
         with:
           body-auto-close: false
           ignore-team-members: false
+          # Search for issue link on mocha repo
+          body-regex: '((https:\/\/github.com\/mochajs\/mocha\/issues\/d*[1-9]d*?)|(#d*[1-9]d*?))'
+          # If the above regex fails to find a match prints the following
+          body-comment: >
+                ## Issue Reference
+
+                Please include a link to the releated issue. Example:
+                Working on #XXX; Fixes #XXX
 
 name: Compliance
 
