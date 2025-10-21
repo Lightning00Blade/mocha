@@ -34,7 +34,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {randomUUID} = require('node:crypto');
 const rollup = require('rollup');
-const { minimatch } = require('minimatch');
+const {minimatch} = require('minimatch');
 const loadConfigFile = require('rollup/dist/loadConfigFile.js');
 const multiEntry = require('@rollup/plugin-multi-entry');
 
@@ -112,7 +112,9 @@ function bundlePreprocessor(config) {
     rollup: {configFile, globals = {}, external = []}
   } = config;
 
-  const configPromise = loadConfigFile(path.resolve(basePath, configFile));
+  const configPromise = loadConfigFile.loadConfigFile(
+    path.resolve(basePath, configFile)
+  );
 
   return async function (content, file, done) {
     const {options, warnings} = await configPromise;
